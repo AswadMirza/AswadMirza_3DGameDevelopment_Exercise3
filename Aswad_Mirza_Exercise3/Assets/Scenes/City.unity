@@ -369,6 +369,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkingSound: {fileID: 8300000, guid: 35e806fa0fdf77e47a3235020be266a0, type: 3}
+--- !u!114 &63523163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 63523151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc217aff4afe1044abc328ff39085f7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aspectType: 0
 --- !u!1 &83142464
 GameObject:
   m_ObjectHideFlags: 0
@@ -4156,7 +4169,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1239846871}
-  m_LocalRotation: {x: 0.54764, y: 0.4301971, z: -0.39185622, w: 0.6012234}
+  m_LocalRotation: {x: 0.54763967, y: 0.43019757, z: -0.3918567, w: 0.60122305}
   m_LocalPosition: {x: -1.73, y: 4.91, z: -9.380001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -6676,6 +6689,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9111445241314061703, guid: 69651696f7b751b4294d640c017e5fd7,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1586903999660170914, guid: 69651696f7b751b4294d640c017e5fd7,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1267138893743541259, guid: 69651696f7b751b4294d640c017e5fd7,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1298539608709235019, guid: 69651696f7b751b4294d640c017e5fd7,
+        type: 3}
+      propertyPath: aspectName
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6999015438731224356, guid: 69651696f7b751b4294d640c017e5fd7,
+        type: 3}
+      propertyPath: aspectName
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3023799239480655181, guid: 69651696f7b751b4294d640c017e5fd7,
+        type: 3}
+      propertyPath: aspectType
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69651696f7b751b4294d640c017e5fd7, type: 3}

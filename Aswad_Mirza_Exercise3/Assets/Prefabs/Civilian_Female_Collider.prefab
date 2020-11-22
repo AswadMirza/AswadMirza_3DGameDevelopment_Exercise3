@@ -992,7 +992,11 @@ GameObject:
   - component: {fileID: 145371419329885488}
   - component: {fileID: 145371419322096502}
   - component: {fileID: 9111445241314061703}
+  - component: {fileID: 1267138893743541259}
   - component: {fileID: 1586903999660170914}
+  - component: {fileID: 1298539608709235019}
+  - component: {fileID: 6999015438731224356}
+  - component: {fileID: 3023799239480655181}
   m_Layer: 0
   m_Name: Civilian_Female_Collider
   m_TagString: Civillian
@@ -1049,6 +1053,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.6241214, z: 1}
   m_Center: {x: -0, y: 0.7646898, z: 0}
+--- !u!114 &1267138893743541259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145371419329522000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e18de0db2fca4910b87ba25245496b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1586903999660170914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1063,6 +1079,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Destination: {x: -3, y: 0, z: -0.5}
   Speed: 2
+--- !u!114 &1298539608709235019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145371419329522000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 929100bae651f9b4e8697197df8dbf4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableDebug: 1
+  aspectName: 1
+  detectionRate: 1
+  fieldOfView: 45
+  viewDistance: 100
+--- !u!114 &6999015438731224356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145371419329522000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72e694ce0ed484740b447a42d5822e13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableDebug: 1
+  aspectName: 1
+  detectionRate: 1
+--- !u!114 &3023799239480655181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145371419329522000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc217aff4afe1044abc328ff39085f7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aspectType: 0
 --- !u!1 &145371419329522004
 GameObject:
   m_ObjectHideFlags: 0
