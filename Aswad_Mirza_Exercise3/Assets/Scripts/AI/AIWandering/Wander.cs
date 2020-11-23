@@ -42,8 +42,12 @@ public class Wander : MonoBehaviour
         transform.Translate(new Vector3(0, 0, movementSpeed * Time.deltaTime));
 	}
 
-    void GetNextPosition()
+    public void GetNextPosition()
     {
         targetPosition = new Vector3(Random.Range(minX, maxX), 0.5f, Random.Range(minZ, maxZ));
+    }
+
+    public void Follow(Transform followTarget) {
+        targetPosition = followTarget.position;
     }
 }

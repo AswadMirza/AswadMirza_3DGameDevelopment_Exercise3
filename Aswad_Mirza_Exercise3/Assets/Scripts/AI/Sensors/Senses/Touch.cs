@@ -2,8 +2,15 @@ using UnityEngine;
 
 public class Touch : Sense
 {
+    Wander m_wander;
+    protected override void Initialize()
+    {
 
-    
+        m_wander = gameObject.GetComponent<Wander>();
+
+
+    }
+
     void OnTriggerEnter(Collider other)
     {
         Aspect aspect = other.GetComponent<Aspect>();
@@ -12,7 +19,25 @@ public class Touch : Sense
             //Check the aspect
             if (aspect.aspectType == aspectName)
             {
-                Debug.Log($" {gameObject.name} has touched a {aspect.aspectType}");
+                Debug.Log($" {gameObject.name} has touched a {aspect.aspectType} named {aspect.gameObject.name}");
+            }
+            else if (aspect.aspectType == Aspect.AspectTypes.BUILDING)
+            {
+                Debug.Log($" {gameObject.name} has touched a building");
+                Debug.Log("Recalculating Direction");
+                if (m_wander != null)
+                {
+                    m_wander.GetNextPosition();
+                }
+            }
+
+            else if (aspect.aspectType == Aspect.AspectTypes.ENEMY) {
+                Debug.Log($" {gameObject.name} has touched an enemy");
+                Debug.Log("Recalculating Direction");
+                if (m_wander != null)
+                {
+                    m_wander.GetNextPosition();
+                }
             }
         }
     }

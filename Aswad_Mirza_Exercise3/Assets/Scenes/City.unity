@@ -6398,13 +6398,69 @@ PrefabInstance:
       propertyPath: apectPerspectiveTransform
       value: 
       objectReference: {fileID: 243838561}
+    - target: {fileID: 1298539608709235019, guid: 69651696f7b751b4294d640c017e5fd7,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9111445241314061703, guid: 69651696f7b751b4294d640c017e5fd7,
         type: 3}
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1267138893743541259, guid: 69651696f7b751b4294d640c017e5fd7,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1267138893743541259, guid: 69651696f7b751b4294d640c017e5fd7,
+        type: 3}
+      propertyPath: minX
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1267138893743541259, guid: 69651696f7b751b4294d640c017e5fd7,
+        type: 3}
+      propertyPath: minZ
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1267138893743541259, guid: 69651696f7b751b4294d640c017e5fd7,
+        type: 3}
+      propertyPath: movementSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1267138893743541259, guid: 69651696f7b751b4294d640c017e5fd7,
+        type: 3}
+      propertyPath: targetPositionTolerance
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1298539608709235019, guid: 69651696f7b751b4294d640c017e5fd7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 69651696f7b751b4294d640c017e5fd7, type: 3}
+--- !u!1 &4454088042759749243 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 145371419329522000, guid: 69651696f7b751b4294d640c017e5fd7,
+    type: 3}
+  m_PrefabInstance: {fileID: 4454088042759749242}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4454088042759749244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4454088042759749243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c31644b8d58779042a5ced90bfe4bc6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableDebug: 1
+  aspectName: 0
+  detectionRate: 1
+  fieldOfView: 45
+  viewDistance: 100
+  apectPerspectiveTransform: {fileID: 243838561}
+  followingDistance: 15
 --- !u!1001 &4575252916096828860
 PrefabInstance:
   m_ObjectHideFlags: 0
