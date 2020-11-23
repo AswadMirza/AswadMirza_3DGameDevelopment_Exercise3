@@ -7,9 +7,9 @@ public class Wander : MonoBehaviour
     public float movementSpeed = 5.0f;
     public float rotationSpeed = 2.0f;
     public float targetPositionTolerance = 3.0f;
-    public float minX = 5f;
+    public float minX = -55f;
     public float maxX =5f;
-    public float minZ=5f;
+    public float minZ=-5f;
     public float maxZ=5f;
 
 	void Start () 

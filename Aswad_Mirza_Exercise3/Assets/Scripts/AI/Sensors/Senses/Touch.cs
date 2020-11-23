@@ -24,10 +24,12 @@ public class Touch : Sense
             else if (aspect.aspectType == Aspect.AspectTypes.BUILDING)
             {
                 Debug.Log($" {gameObject.name} has touched a building");
-                Debug.Log("Recalculating Direction");
+                
                 if (m_wander != null)
                 {
+                    Debug.Log("Recalculating Direction");
                     m_wander.GetNextPosition();
+
                 }
             }
 
