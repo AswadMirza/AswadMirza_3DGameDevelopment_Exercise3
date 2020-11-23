@@ -3,21 +3,24 @@ using UnityEngine;
 public class Touch : Sense
 {
 
-    /*
+    
     void OnTriggerEnter(Collider other)
     {
         Aspect aspect = other.GetComponent<Aspect>();
         if (aspect != null)
         {
             //Check the aspect
-            if (aspect.aspectType != aspectName)
+            if (aspect.aspectType == aspectName)
             {
-                print("Enemy Touch Detected");
+                Debug.Log($" {gameObject.name} has touched a {aspect.aspectType}");
             }
         }
     }
-    */
+    
     //In order to keep the collision of the object, and to prevent it from moving through walls it has oncollision enter
+
+
+    /*
     private void OnCollisionEnter(Collision collision)
     {
         Aspect aspect = collision.gameObject.GetComponent<Aspect>();
@@ -29,4 +32,5 @@ public class Touch : Sense
             }
         }
     }
+    */
 }

@@ -1,20 +1,21 @@
-using System.Collections;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class Perspective : Sense
+public class VehiclePerspective : Sense
 {
     public int fieldOfView = 45;
     public int viewDistance = 100;
 
 
     public Transform apectPerspectiveTransform;
-    public Transform[] interestingObjects;
+    public List<Transform> interestingObjects;
     private Vector3 rayDirection;
 
     // the distance in which this car needs to slow down when it detects a civillian in front of it
-    private float breakingDistance = 10f;
-    private float breakSpeed = 0.5f;
-    private float initialMovementSpeed=9f;
+    public float breakingDistance = 10f;
+    public float breakSpeed = 0.5f;
+    public float initialMovementSpeed = 9f;
     protected override void Initialize()
     {
         // this line of code is problematic because it is hardcoded for it to detect the player or enemy, 
@@ -22,13 +23,20 @@ public class Perspective : Sense
         //apectPerspectiveTransform = GameObject.FindGameObjectWithTag("Player").transform;
 
         //playerTransform = GameObject.Find("Civilian_Test").transform;
-        //GameObject[] civillianObjects = GameObject.FindGameObjectsWithTag("Civillian");
+        GameObject[] civillianObjects = GameObject.FindGameObjectsWithTag("Civillian");
 
 
-        if (gameObject.GetComponent<MovementOnPoints>() != null && IsVehicle()) {
+        if (gameObject.GetComponent<MovementOnPoints>() != null && IsVehicle())
+        {
             initialMovementSpeed = gameObject.GetComponent<MovementOnPoints>().Speed;
         }
-            
+
+        foreach (GameObject civillian in civillianObjects) {
+            interestingObjects.Add(civillian.transform);
+        }
+
+        //interestingObjects.Add(GameObject.FindGameObjectWithTag("Player").transform);
+
     }
 
     protected override void UpdateSense()
@@ -37,60 +45,21 @@ public class Perspective : Sense
 
         if (elapsedTime >= detectionRate)
         {
-            DetectAspect();
+            
 
-            /*
-            for (int i = 0; i < interestingObjects.Length; i++) {
+            
+            for (int i = 0; i < interestingObjects.Count; i++) {
                 DetectAspect(interestingObjects[i]);
             }
-            */
+            
         }
     }
 
     //Detect perspective field of view for the AI Character
-    void DetectAspect()
+    
+
+    void DetectAspect(Transform aspectTransform)
     {
-        RaycastHit hit;
-        rayDirection = apectPerspectiveTransform.position - transform.position;
-
-        if ((Vector3.Angle(rayDirection, transform.forward)) < fieldOfView)
-        {
-            // Detect if object is within the field of view
-            if (Physics.Raycast(transform.position, rayDirection, out hit, viewDistance))
-            {
-                Aspect aspect = hit.collider.GetComponent<Aspect>();
-
-                // logic for the object it is interested in
-                if (aspect != null)
-                {
-                    //Check the aspect
-                    if (aspect.aspectType == aspectName)
-                    {
-                        print($"{aspectName} Detected");
-                        if (IsVehicle()) {
-                            CivillianDetectedByCar();
-                        }
-                    }
-                }
-                // logic in case it loses vision of the object it is interested in
-                else
-                {
-                    MovementOnPoints movement = gameObject.GetComponent<MovementOnPoints>();
-                    if (IsVehicle() && movement != null)
-                    {
-                        movement.Speed = initialMovementSpeed;
-                    }
-
-                }
-            }
-           
-
-
-        }
-        
-    }
-
-    void DetectAspect(Transform aspectTransform) {
 
 
 
@@ -103,14 +72,28 @@ public class Perspective : Sense
             if (Physics.Raycast(transform.position, rayDirection, out hit, viewDistance))
             {
                 Aspect aspect = hit.collider.GetComponent<Aspect>();
+                // logic for the object it is interested in
                 if (aspect != null)
                 {
                     //Check the aspect
                     if (aspect.aspectType == aspectName)
                     {
                         print($"{aspectName} Detected");
-                        
+                        if (IsVehicle())
+                        {
+                            CivillianDetectedByCar(aspectTransform);
+                        }
                     }
+                }
+                // logic in case it loses vision of the object it is interested in
+                else
+                {
+                    MovementOnPoints movement = gameObject.GetComponent<MovementOnPoints>();
+                    if (IsVehicle() && movement != null)
+                    {
+                        movement.Speed = initialMovementSpeed;
+                    }
+
                 }
             }
         }
@@ -143,40 +126,48 @@ public class Perspective : Sense
     }
 
     // helper functions to return bool values
-    bool IsVehicle() {
+    bool IsVehicle()
+    {
 
         if (gameObject.tag.Equals("Car"))
         {
             return true;
         }
-        else {
+        else
+        {
             return false;
         }
     }
 
-    bool IsCivillian() {
+    bool IsCivillian()
+    {
         if (gameObject.tag.Equals("Civillian"))
         {
             return true;
         }
-        else {
+        else
+        {
             return false;
         }
     }
 
     // logic for the cars if they detect a civillian
-    void CivillianDetectedByCar() {
+    void CivillianDetectedByCar(Transform civillianTransform)
+    {
 
         MovementOnPoints movement = gameObject.GetComponent<MovementOnPoints>();
-        if (movement != null) {
+        if (movement != null)
+        {
 
-            if (Vector3.Distance(apectPerspectiveTransform.position, transform.position)<breakingDistance) {
+            if (Vector3.Distance(civillianTransform.position, transform.position) < breakingDistance)
+            {
                 movement.Speed -= breakSpeed;
-                if (movement.Speed <= 0) {
+                if (movement.Speed <= 0)
+                {
                     movement.Speed = 0;
                 }
             }
-            
+
         }
     }
 }
