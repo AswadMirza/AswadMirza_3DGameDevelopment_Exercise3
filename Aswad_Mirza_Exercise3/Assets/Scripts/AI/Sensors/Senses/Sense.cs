@@ -1,5 +1,6 @@
 using UnityEngine;
-
+//Aswad Mirza 991445135
+//From   the example from week 8 and from examples from the textbook "Unity 2017 Game AI Programming"
 public class Sense : MonoBehaviour {
 	public bool enableDebug = true;
 	public Aspect.AspectTypes aspectName = Aspect.AspectTypes.ENEMY;

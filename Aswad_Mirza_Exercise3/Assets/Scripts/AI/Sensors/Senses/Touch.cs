@@ -1,5 +1,6 @@
 using UnityEngine;
-
+//Aswad Mirza 991445135
+//Based on the example from week 8 and from examples from the textbook "Unity 2017 Game AI Programming"
 public class Touch : Sense
 {
     Wander m_wander;

@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
-
+//Aswad Mirza 991445135
+//Based on the example from week 8 and from examples from the textbook "Unity 2017 Game AI Programming"
 public class Perspective : Sense
 {
     public int fieldOfView = 45;

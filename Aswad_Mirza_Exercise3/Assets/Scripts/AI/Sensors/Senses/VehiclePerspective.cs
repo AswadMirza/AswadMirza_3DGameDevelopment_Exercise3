@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Aswad Mirza 991445135
+//Based on the example from week 8 and from examples from the textbook "Unity 2017 Game AI Programming"
 public class VehiclePerspective : Sense
 {
     public int fieldOfView = 45;
@@ -78,23 +80,36 @@ public class VehiclePerspective : Sense
                     //Check the aspect
                     if (aspect.aspectType == aspectName)
                     {
-                        print($"{aspectName} Detected");
+
+
+                        //print($"{aspectName} Detected");
                         if (IsVehicle())
                         {
                             CivillianDetectedByCar(aspectTransform);
                         }
                     }
                 }
-                // logic in case it loses vision of the object it is interested in
+                // logic in case the object it is hitting does not have aspect
                 else
                 {
+                    /*
                     MovementOnPoints movement = gameObject.GetComponent<MovementOnPoints>();
                     if (IsVehicle() && movement != null)
                     {
                         movement.Speed = initialMovementSpeed;
                     }
-
+                    */
                 }
+            }
+            // logic for if the object is no longer in thier field of view
+            else {
+                
+                MovementOnPoints movement = gameObject.GetComponent<MovementOnPoints>();
+                if (IsVehicle() && movement != null)
+                {
+                    movement.Speed = initialMovementSpeed;
+                }
+                
             }
         }
     }
@@ -161,11 +176,15 @@ public class VehiclePerspective : Sense
 
             if (Vector3.Distance(civillianTransform.position, transform.position) < breakingDistance)
             {
+                Debug.Log($"A {aspectName}  is detected by ,  {gameObject.name}, breaking");
                 movement.Speed -= breakSpeed;
                 if (movement.Speed <= 0)
                 {
                     movement.Speed = 0;
                 }
+            }
+            else {
+                movement.Speed = initialMovementSpeed;
             }
 
         }
